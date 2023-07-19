@@ -12,7 +12,7 @@ export async function getStaticProps(props: any) {
   const announce = await builder
     .get('product-category-cta', { query: {
       data: {
-        categorySlug: urlPath
+        categorySlug: '/product/category/electrical'
       }
     } })
     .toPromise();
