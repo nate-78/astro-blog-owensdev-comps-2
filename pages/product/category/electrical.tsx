@@ -7,8 +7,8 @@ const BUILDER_API_KEY = 'de6d47b07dda425e8de672c214f22836';
 // Replace with your Public API Key.
 builder.init(BUILDER_API_KEY);
 
-export async function getStaticProps({ params }) {
-  const urlPath = '/' + (params?.page?.join('/') || '');
+export async function getStaticProps(props: any) {
+  const urlPath = '/' + (props.params?.page?.join('/') || '');
   const announce = await builder
     .get('product-category-cta', { query: {
       data: {
@@ -41,14 +41,14 @@ export async function getStaticProps({ params }) {
 //   };
 // }
 
-export default function Page({ announce }) {
+export default function Page(props: any) {
   return (
     <>
       {/* Put your header here. */}
       <div>
         Other stuff goes here -- like built-in stuff
       </div>
-      <BuilderComponent model="product-category-cta" content={announce} />
+      <BuilderComponent model="product-category-cta" content={props.announce} />
       {/* Put the rest of your page here. */}
       <div>
         More stuff goes down here
